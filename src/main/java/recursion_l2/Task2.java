@@ -1,0 +1,10 @@
+package recursion_l2;
+
+public class Task2 {
+    public boolean isPowerOfTwo(int n) {
+        if (n == 1) return true;
+        if (n % 2 == 1) return false;
+        if (n <= 0) return false;
+        return isPowerOfTwo(n / 2);
+    }
+}
