@@ -26,16 +26,36 @@ public class Task1 {
         }
     }
     private boolean canPlace(int i, int j){
-        //
-        for (int col = j - 1; col >= 0; col--){
-            if (board[i][col] == 1) return false;
-        }
-        //вверх по диагонали
-        for (int row = i - 1, col = j - 1; row >= 0 && col >= 0; row--, col--){
+        //2 направо и 1 вниз
+        for (int row = i + 1, col = j - 2; row < board.length && col >= 0; row++, col--){
             if (board[row][col] == 1) return false;
         }
-        //вниз по диагонали
-        for (int row = i + 1, col = j - 1; row < board.length && col >= 0; row++, col--){
+        //1 направо и 2 вниз
+        for (int row = i + 2, col = j - 1; row < board.length && col >= 0; row++, col--){
+            if (board[row][col] == 1) return false;
+        }
+        //2 направо и 1 вверх
+        for (int row = i - 1, col = j - 2; row >= 0 && col >= 0; row--, col--){
+            if (board[row][col] == 1) return false;
+        }
+        //1 налево и 2 вниз
+        for (int row = i + 2, col = j + 1; row < board.length && col < board.length; row++, col++) {
+            if (board[row][col] == 1) return false;
+        }
+        //2 налево и 1 вниз
+        for (int row = i + 1, col = j + 2; row < board.length && col < board.length; row++, col++) {
+            if (board[row][col] == 1) return false;
+        }
+        //2 налево и 1 вверх
+        for (int row = i - 1, col = j + 2; row >= 0 && col < board.length; row--, col++) {
+            if (board[row][col] == 1) return false;
+        }
+        //1 направо и 2 вверх
+        for (int row = i + 2, col = j - 1; row < board.length && col >= 0; row++, col--){
+            if (board[row][col] == 1) return false;
+        }
+        //1 налево и 2 вверх
+        for (int row = i + 2, col = j + 1; row < board.length && col < board.length; row++, col++) {
             if (board[row][col] == 1) return false;
         }
         return true;
